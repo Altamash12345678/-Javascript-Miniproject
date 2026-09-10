@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Number Validation</title>
+    <style>
+        body {
+          
+         background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzWG5eWdhJw8aiW2IeLdKP19vxgehs_MDjiVUKmWP7LDXKpwoA-7N2MZ73&s=10");
+           background-size:cover;
+          
+           }
+        .main {
+            border: 5px solid aqua;
+            width: 45%;
+            background: darkcyan;
+            text-align: center;
+            margin:0px auto;
+            margin-top:15%;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            outline: none;
+            width: 100%;
+            text-align: center;
+            margin-top:4%;
+            outline:none;
+            border:none;
+        }
+
+        button {
+            padding: 10px;
+            width: 60%;
+            margin-top: 5%;
+           outline:none;
+            border-radius: 20px;
+            margin-bottom: 5%;
+            border: none;
+            background:#174d61;
+            color:white;
+
+        }
+            button:hover {
+                background:#011c43;
+            }
+        .child {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+        }
+
+        .box input {
+            width: 5%;
+             
+        }
+        box {
+           width:22%;
+            text-align:center;
+        }
+
+        .verify {
+            display: none;
+            border: 5px solid aqua;
+            width: 45%;
+            text-align: center;
+            background:darkcyan;
+            margin:0px auto;
+            margin-top:15%;
+           
+        }
+        h1,h3 {
+            color:white;
+        }
+        .verify button {
+           width:14%;
+              margin-top: 2%;
+             display:block;
+            margin-left:34%;
+              width: 30%;
+        }
+        .verify input {
+            margin:3%;
+        }
+    </style>
+    <script>
+
+        var generatedOTP = "";
+
+        function sendotp() {
+            var mob = document.getElementById("mobile").value;
+            if (mob === "") {
+                alert("Please Enter your Mobile");
+
+            }
+            else {
+                if (mob.length == 10) {
+
+
+                    generatedOTP = "1234";
+
+
+                    document.querySelector(".main").style.display = "none";
+                    document.getElementById("otpsection").style.display = "block";
+
+
+                }
+                else {
+                    alert("please enter the valid mobile");
+                }
+            }
+        }
+
+        function verifyotp() {
+            var enterotp =
+                document.getElementById("num1").value +
+                 document.getElementById("num2").value +
+                  document.getElementById("num3").value +
+                   document.getElementById("num4").value;
+
+            if (enterotp == generatedOTP) {
+                alert("otp verify  successfully");
+            }
+            else {
+                alert("OOPS Try again!");
+            }
+        }
+
+
+        function validateMobile(input) {
+            var value = input.value.replace(/\D/g, '');
+            if (value.length > 0 && !/^[789]/.test(value)) {
+                value = '';
+            }
+            input.value = value;
+           
+        }
+        
+    </script>
+</head>
+<body>
+
+    <div class="main">
+        <h1>Verify Mobile Number</h1>
+        <h3>Enter your 4-digit verification code</h3>
+        <hr />
+        <div class="child">
+            <input
+                type="text"
+                id="mobile"
+                maxlength="10"
+                placeholder="Enter 10-digit number"
+                oninput="validateMobile(this)" />
+
+            <button id="btnsubmit" onclick="sendotp();">Send OTP</button>
+        </div>
+    </div>
+
+    <div id="otpsection" class="verify">
+        <h1>OTP Sent</h1>
+        <h3>Sent Otp your Mobile Number (use demo code 1234) </h3>
+          <hr />
+        <div class="box">
+            <input type="text" id="num1" maxlength="1" tabindex="1" />
+            <input type="text" id="num2" maxlength="1" tabindex="2" />
+            <input type="text" id="num3" maxlength="1" tabindex="3" />
+            <input type="text" id="num4" maxlength="1" tabindex="4" />
+            
+            <button id="verify" onclick="verifyotp();">Verify OTP</button>
+        </div>
+
+    </div>
+</body>
+</html>
