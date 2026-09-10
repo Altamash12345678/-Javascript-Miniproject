@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .clmain {
+            width: 24%;
+            border: 1px solid black;
+            /*padding: 10px;*/
+            margin: 0px auto;
+            margin-top: 13%;
+            border-radius: 10px;
+         background:#174c63;
+        
+  
+  
+ 
+ 
+}
+        
+
+        input[type="button" ] {
+            padding: 10px;
+            width: 16%;
+            text-align: center;
+            font-size: 22px;
+            border-radius: 20px;
+            border: none;
+            background: #e75d3c;
+             color:white;
+             margin-bottom:3%;
+        }
+
+        h1 {
+            letter-spacing: 3px;
+            text-align: center;
+            background:#b5ae93;
+            color:white;
+          padding:0;
+            
+        }
+
+        .child {
+            text-align: center;
+        }
+
+        span {
+            padding: 10px;
+            font-size: 22px;
+            color:white;
+        }
+
+        hr {
+            margin-bottom: 5%;
+        }
+
+        input[type="button" ]:hover {
+            background: #2d3748;
+        }
+        
+
+    </style>
+
+    <script>
+
+        function myhandle(opt) {
+
+            debugger;
+            var quant = document.getElementById("quantity");
+            var nextvalue = parseInt(quant.innerText);
+            if (opt == '+') {
+
+                quant.innerText = nextvalue + 1;
+            }
+            else {
+                quant.innerText = nextvalue - 1;
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <div class="animated-border-box">
+    <div class="clmain">
+        <h1>Quantity selector
+        </h1>
+        <hr />
+        <div class="child">
+            <input type="button" id="btnadd" value="+" onclick="myhandle('+');" />
+            <span id="quantity">1</span>
+            <input type="button" id="btnsub" value="-" onclick="myhandle('-');" />
+        </div>
+
+
+
+    </div>
+
+        </div>
+
+</body>
+</html>
