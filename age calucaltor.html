@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        body {
+            background: #2ac48f;
+        }
+
+        .main {
+            border: 10px solid #216f5f;
+            width: 50%;
+            padding: 10px;
+            margin: 0px auto;
+            margin-top: 12%;
+            background: url("https://img.magnific.com/free-vector/blue-polygon-dark-background_53876-118498.jpg?semt=ais_hybrid&w=740&q=80");
+        }
+
+        input[type="date" ] {
+            font-size: 18px;
+            width: 51%;
+            padding: 10px;
+            text-align: center;
+            outline: none;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 2px solid white;
+            text-align: center;
+            color: aqua;
+            padding:10px;
+        }
+
+        input[type="button" ] {
+            width: 30%;
+            padding: 5px;
+            border-radius: 20px;
+            border: none;
+            background: green;
+            font-size: 18px;
+            color: white;
+        }
+
+        .child {
+            margin-bottom: 5%;
+            margin-left: 3%;
+            display: flex;
+            gap: 20px;
+        }
+
+        #clear {
+            background: red;
+            color: white;
+        }
+
+            #clear:hover {
+                background: #a20f20;
+            }
+
+        input[type="button" ]:hover {
+            background: #002200;
+        }
+    </style>
+    <script>
+        function formatDate(date) {
+            let day = date.getDate().toString().padStart(2, '0');
+            let month = (date.getMonth() + 1).toString().padStart(2, '0'); // months are 0-based
+            let year = date.getFullYear();
+            return `${day}-${month}-${year}`;
+        }
+        function mydate() {
+
+            
+
+            var birth = document.getElementById("birthday").value;
+            var birthDate = new Date(birth);
+            var currentDate = new Date();
+            var age;
+          
+            if (birth == "" ) {
+                alert("please select your birthdate");
+            }
+            else {
+                if (birthDate > currentDate) {
+                    alert("birthdate should not be greater than today");
+                }
+                else {
+                    age = currentDate.getFullYear() - birthDate.getFullYear();
+                    alert("your age is" + " " + age);
+                }
+              
+
+
+
+            }
+
+
+        }
+
+        function myclear() {
+            document.getElementById("birthday").value = "";
+        }
+
+    </script>
+</head>
+<body>
+
+    <div class="main">
+        <h1>Age Calculator</h1>
+        <div class="child">
+            <input type="date" id="birthday" name="birthday">
+
+            <input type="button" id="btnsubmit" value="Calculate" onclick="mydate();" />
+            <input type="button" id="clear" value="clear" onclick="myclear();" class="clear" />
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>
